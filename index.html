@@ -117,19 +117,19 @@
         <p data-et="Täida vorm või helista. Vastame esimesel võimalusel ja kinnitame seadmete saadavuse." data-ru="Заполните форму или позвоните. Мы ответим и подтвердим наличие аппаратов.">Täida vorm või helista. Vastame esimesel võimalusel ja kinnitame seadmete saadavuse.</p>
         <div class="contact-list"><a class="contact-link" href="tel:+3725500042"><span data-et="Telefon" data-ru="Телефон">Telefon</span>+372 5500042</a><a class="contact-link" href="mailto:dnbgroupinfo@gmail.com"><span>E-post</span>dnbgroupinfo@gmail.com</a></div>
       </div>
-      <form class="order-form" id="orderForm" action="https://formsubmit.co/73d40a13ae725e58b47ff1d6272a4009" method="post">
+      <form class="order-form" id="orderForm" action="https://forminit.com/f/89e5wv306uf" method="post" enctype="multipart/form-data" accept-charset="UTF-8" data-forminit-referrer>
         <input class="hp" name="_honey" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="_subject" value="Uus Kuivatirent.ee rendipäring">
-        <input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" id="nextUrl" value="https://kuivatirent.ee/?sent=1#kontakt">
+        <input type="hidden" name="site" value="kuivatirent.ee">
+        <input type="hidden" name="subject" value="Uus Kuivatirent.ee rendipäring">
+        <input type="hidden" name="source_url" id="sourceUrl" value="">
         <input type="hidden" name="Arvutus" id="calcDetails">
-        <div class="two"><div><label for="name" data-et="Nimi" data-ru="Имя">Nimi</label><input id="name" name="Nimi" autocomplete="name" required></div><div><label for="phone" data-et="Telefon" data-ru="Телефон">Telefon</label><input id="phone" name="Telefon" type="tel" autocomplete="tel" required></div></div>
-        <div class="two"><div><label for="email">E-post</label><input id="email" name="email" type="email" autocomplete="email"></div><div><label for="startDate" data-et="Soovitud algus" data-ru="Желаемая дата начала">Soovitud algus</label><input id="startDate" name="Alguskuupäev" type="date"></div></div>
+        <div class="two"><div><label for="name" data-et="Nimi" data-ru="Имя">Nimi</label><input id="name" name="name" autocomplete="name" required></div><div><label for="phone" data-et="Telefon" data-ru="Телефон">Telefon</label><input id="phone" name="Telefon" type="tel" autocomplete="tel" required></div></div>
+        <div class="two"><div><label for="email">E-post</label><input id="email" name="email" type="email" autocomplete="email" required></div><div><label for="startDate" data-et="Soovitud algus" data-ru="Желаемая дата начала">Soovitud algus</label><input id="startDate" name="Alguskuupäev" type="date"></div></div>
         <div><label for="delivery" data-et="Seadme üleandmine" data-ru="Получение аппарата">Seadme üleandmine</label><select id="delivery" name="Üleandmine"><option value="Kokkuleppel" data-et="Kokkuleppel" data-ru="По договорённости">Kokkuleppel</option><option value="Tulen ise järele" data-et="Tulen ise järele" data-ru="Заберу сам">Tulen ise järele</option><option value="Soovin transporti" data-et="Soovin transporti" data-ru="Нужна доставка">Soovin transporti</option></select></div>
-        <div><label for="message" data-et="Lisainfo" data-ru="Дополнительная информация">Lisainfo</label><textarea id="message" name="Lisainfo" data-ph-et="Objekti asukoht, ruumi suurus või muu oluline info..." data-ph-ru="Адрес объекта, площадь помещения или другая важная информация..." placeholder="Objekti asukoht, ruumi suurus või muu oluline info..."></textarea></div>
-        <button class="btn primary" type="submit" data-et="Saada rendipäring" data-ru="Отправить заявку">Saada rendipäring</button>
+        <div><label for="message" data-et="Lisainfo" data-ru="Дополнительная информация">Lisainfo</label><textarea id="message" name="message" required data-ph-et="Objekti asukoht, ruumi suurus või muu oluline info..." data-ph-ru="Адрес объекта, площадь помещения или другая важная информация..." placeholder="Objekti asukoht, ruumi suurus või muu oluline info..."></textarea></div>
+        <button class="btn primary" id="submitButton" type="submit" data-et="Saada rendipäring" data-ru="Отправить заявку">Saada rendipäring</button>
         <div class="status" id="formStatus" role="status"></div>
-        <p class="form-note" data-et="Vormi andmed saadetakse FormSubmit teenuse kaudu DNB Group OÜ e-postile. Päring ei ole broneering enne, kui oleme saadavuse kinnitanud." data-ru="Данные формы отправляются через FormSubmit на e-mail DNB Group OÜ. Заявка не является бронью, пока мы не подтвердили наличие.">Vormi andmed saadetakse FormSubmit teenuse kaudu DNB Group OÜ e-postile. Päring ei ole broneering enne, kui oleme saadavuse kinnitanud.</p>
+        <p class="form-note" data-et="Vormi andmed saadetakse Forminit teenuse kaudu DNB Group OÜ e-postile. Päring ei ole broneering enne, kui oleme saadavuse kinnitanud." data-ru="Данные формы отправляются через Forminit на e-mail DNB Group OÜ. Заявка не является бронью, пока мы не подтвердили наличие.">Vormi andmed saadetakse Forminit teenuse kaudu DNB Group OÜ e-postile. Päring ei ole broneering enne, kui oleme saadavuse kinnitanud.</p>
       </form>
     </div>
   </section>
@@ -166,6 +166,39 @@
   }
   langButtons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
   const tomorrow=new Date();tomorrow.setDate(tomorrow.getDate()+1);document.getElementById('startDate').min=tomorrow.toISOString().slice(0,10);
+  const orderForm=document.getElementById('orderForm');
+  const submitButton=document.getElementById('submitButton');
+  const formStatus=document.getElementById('formStatus');
+  const sourceUrl=document.getElementById('sourceUrl');
+  orderForm.addEventListener('submit',async event=>{
+    event.preventDefault();
+    const lang=document.documentElement.lang||'et';
+    const result=calculate();
+    if(!result.units){
+      els.warn.classList.add('show');
+      els.master.focus();
+      return;
+    }
+    if(orderForm.querySelector('[name="_honey"]').value)return;
+    sourceUrl.value=window.location.href;
+    submitButton.disabled=true;
+    submitButton.textContent=lang==='ru'?'Отправка…':'Saadan…';
+    formStatus.className='status';
+    formStatus.textContent='';
+    try{
+      const response=await fetch(orderForm.action,{method:'POST',body:new FormData(orderForm),headers:{Accept:'application/json'}});
+      if(!response.ok)throw new Error('HTTP '+response.status);
+      const test=new URLSearchParams(window.location.search).get('test')==='1'?'&test=1':'';
+      window.location.href=`https://kuivatirent.ee/?sent=1&lang=${lang}${test}#kontakt`;
+    }catch(error){
+      formStatus.className='status show error';
+      formStatus.textContent=lang==='ru'
+        ?'Не удалось отправить заявку. Позвоните +372 5500042 или напишите dnbgroupinfo@gmail.com.'
+        :'Päringu saatmine ebaõnnestus. Helista +372 5500042 või kirjuta dnbgroupinfo@gmail.com.';
+      submitButton.disabled=false;
+      submitButton.textContent=lang==='ru'?'Отправить заявку':'Saada rendipäring';
+    }
+  });
   const params=new URLSearchParams(location.search);let saved='et';try{saved=localStorage.getItem('kuivatirent-lang')||'et'}catch(e){}
   setLang(params.get('lang')||saved);
   if(params.get('sent')==='1'){const s=document.getElementById('formStatus');s.className='status show success';s.textContent=document.documentElement.lang==='ru'?'Спасибо! Заявка отправлена. Мы свяжемся с вами.':'Aitäh! Rendipäring on saadetud. Võtame ühendust.';history.replaceState(null,'',location.pathname+'#kontakt')}
