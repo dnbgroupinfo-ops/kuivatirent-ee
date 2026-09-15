@@ -119,14 +119,14 @@
       </div>
       <form class="order-form" id="orderForm" action="https://forminit.com/f/89e5wv306uf" method="post" enctype="multipart/form-data" accept-charset="UTF-8" data-forminit-referrer>
         <input class="hp" name="_honey" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="site" value="kuivatirent.ee">
-        <input type="hidden" name="subject" value="Uus Kuivatirent.ee rendipäring">
-        <input type="hidden" name="source_url" id="sourceUrl" value="">
-        <input type="hidden" name="Arvutus" id="calcDetails">
-        <div class="two"><div><label for="name" data-et="Nimi" data-ru="Имя">Nimi</label><input id="name" name="name" autocomplete="name" required></div><div><label for="phone" data-et="Telefon" data-ru="Телефон">Telefon</label><input id="phone" name="Telefon" type="tel" autocomplete="tel" required></div></div>
-        <div class="two"><div><label for="email">E-post</label><input id="email" name="email" type="email" autocomplete="email" required></div><div><label for="startDate" data-et="Soovitud algus" data-ru="Желаемая дата начала">Soovitud algus</label><input id="startDate" name="Alguskuupäev" type="date"></div></div>
-        <div><label for="delivery" data-et="Seadme üleandmine" data-ru="Получение аппарата">Seadme üleandmine</label><select id="delivery" name="Üleandmine"><option value="Kokkuleppel" data-et="Kokkuleppel" data-ru="По договорённости">Kokkuleppel</option><option value="Tulen ise järele" data-et="Tulen ise järele" data-ru="Заберу сам">Tulen ise järele</option><option value="Soovin transporti" data-et="Soovin transporti" data-ru="Нужна доставка">Soovin transporti</option></select></div>
-        <div><label for="message" data-et="Lisainfo" data-ru="Дополнительная информация">Lisainfo</label><textarea id="message" name="message" required data-ph-et="Objekti asukoht, ruumi suurus või muu oluline info..." data-ph-ru="Адрес объекта, площадь помещения или другая важная информация..." placeholder="Objekti asukoht, ruumi suurus või muu oluline info..."></textarea></div>
+        <input type="hidden" name="fi-text-site" value="kuivatirent.ee">
+        <input type="hidden" name="fi-text-subject" value="Uus Kuivatirent.ee rendipäring">
+        <input type="hidden" name="fi-text-source_url" id="sourceUrl" value="">
+        <input type="hidden" name="fi-text-calculation" id="calcDetails">
+        <div class="two"><div><label for="name" data-et="Nimi" data-ru="Имя">Nimi</label><input id="name" name="fi-sender-fullName" autocomplete="name" required></div><div><label for="phone" data-et="Telefon" data-ru="Телефон">Telefon</label><input id="phone" name="fi-text-phone" type="tel" autocomplete="tel" required></div></div>
+        <div class="two"><div><label for="email">E-post</label><input id="email" name="fi-sender-email" type="email" autocomplete="email" required></div><div><label for="startDate" data-et="Soovitud algus" data-ru="Желаемая дата начала">Soovitud algus</label><input id="startDate" name="fi-date-start-date" type="date"></div></div>
+        <div><label for="delivery" data-et="Seadme üleandmine" data-ru="Получение аппарата">Seadme üleandmine</label><select id="delivery" name="fi-select-delivery"><option value="Kokkuleppel" data-et="Kokkuleppel" data-ru="По договорённости">Kokkuleppel</option><option value="Tulen ise järele" data-et="Tulen ise järele" data-ru="Заберу сам">Tulen ise järele</option><option value="Soovin transporti" data-et="Soovin transporti" data-ru="Нужна доставка">Soovin transporti</option></select></div>
+        <div><label for="message" data-et="Lisainfo" data-ru="Дополнительная информация">Lisainfo</label><textarea id="message" name="fi-text-message" required data-ph-et="Objekti asukoht, ruumi suurus või muu oluline info..." data-ph-ru="Адрес объекта, площадь помещения или другая важная информация..." placeholder="Objekti asukoht, ruumi suurus või muu oluline info..."></textarea></div>
         <button class="btn primary" id="submitButton" type="submit" data-et="Saada rendipäring" data-ru="Отправить заявку">Saada rendipäring</button>
         <div class="status" id="formStatus" role="status"></div>
         <p class="form-note" data-et="Vormi andmed saadetakse Forminit teenuse kaudu DNB Group OÜ e-postile. Päring ei ole broneering enne, kui oleme saadavuse kinnitanud." data-ru="Данные формы отправляются через Forminit на e-mail DNB Group OÜ. Заявка не является бронью, пока мы не подтвердили наличие.">Vormi andmed saadetakse Forminit teenuse kaudu DNB Group OÜ e-postile. Päring ei ole broneering enne, kui oleme saadavuse kinnitanud.</p>
@@ -138,6 +138,7 @@
 <footer><div class="wrap footer"><div><strong>Kuivatirent.ee · DNB Group OÜ</strong><br>Registrikood 14844492 · KMKR EE102205622</div><div><a href="tel:+3725500042">+372 5500042</a> · <a href="mailto:dnbgroupinfo@gmail.com">dnbgroupinfo@gmail.com</a></div></div></footer>
 <div class="mobile-bar"><a href="tel:+3725500042" data-et="Helista" data-ru="Позвонить">Helista</a><a class="rent" href="#kalkulaator" data-et="Arvuta hind" data-ru="Рассчитать">Arvuta hind</a></div>
 
+<script src="https://forminit.com/sdk/v1/forminit.js"></script>
 <script>
   const VAT=.24, DAY_PRICE=5;
   const els={master:document.getElementById('masterQty'),emid:document.getElementById('emidQty'),days:document.getElementById('days'),units:document.getElementById('unitsOut'),net:document.getElementById('netOut'),vat:document.getElementById('vatOut'),total:document.getElementById('totalOut'),warn:document.getElementById('calcWarning'),details:document.getElementById('calcDetails')};
@@ -186,8 +187,9 @@
     formStatus.className='status';
     formStatus.textContent='';
     try{
-      const response=await fetch(orderForm.action,{method:'POST',body:new FormData(orderForm),headers:{Accept:'application/json'}});
-      if(!response.ok)throw new Error('HTTP '+response.status);
+      const forminit=new Forminit();
+      const {error}=await forminit.submit('89e5wv306uf',new FormData(orderForm));
+      if(error)throw error;
       const test=new URLSearchParams(window.location.search).get('test')==='1'?'&test=1':'';
       window.location.href=`https://kuivatirent.ee/?sent=1&lang=${lang}${test}#kontakt`;
     }catch(error){
